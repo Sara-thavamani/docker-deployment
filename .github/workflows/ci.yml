@@ -17,5 +17,6 @@ jobs:
       run: docker build -t dockerangular .
 
     - name: Run Docker container for testing
-      run: docker run --name mycontainer dockerangular npm test
+      run: docker run dockerangular npm test
+
 
