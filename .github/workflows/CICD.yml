@@ -16,10 +16,10 @@ jobs:
     - name: Build Docker image
       run: |
         docker build -t dockerangular .
-        docker tag dockerangular:latest ${{ secrets.DOCKER_USERNAME }}/dockerangular:latest
+        docker tag dockerangular:latest ${{ secrets.saralaaa}}/dockerangular:latest
 
     - name: Log in to Docker Hub
-      run: docker login -u saralaaa -p ${{ secrets.DOCKER_PASSWORD }}
+      run: docker login -u saralaaa -p ${{ secrets.dckr_pat_gWx_UJ5CQDaYYk-rTScZUAMkxL0 }}
 
     - name: Push Docker image to Docker Hub
-      run: docker push ${{ secrets.DOCKER_USERNAME }}/dockerangular:latest
+      run: docker push ${{ secrets.saralaaa }}/dockerangular:latest
