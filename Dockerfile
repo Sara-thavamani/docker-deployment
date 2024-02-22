@@ -1,22 +1,20 @@
-# Stage 1: Build Angular application
-FROM node:latest as angular
+# Use an image with Node.js pre-installed
+FROM node:latest
+
+# Set the working directory
 WORKDIR /app
-COPY . .
+
+# Copy package.json and package-lock.json (if present) to the container
+COPY package*.json ./
+
+# Install dependencies
 RUN npm install
-RUN npm install -g @angular/cli@latest  # Install the latest version of Angular CLI globally
-RUN npm run build   # Assuming you want to build for production
 
-# Stage 2: Serve Angular application with Apache HTTP Server
-FROM httpd:alpine3.15
+# Copy the rest of the application code to the container
+COPY . .
 
-# Install Chrome browser
-RUN apk update && apk upgrade && \
-    apk add --no-cache chromium
+# Expose port (if needed)
+# EXPOSE 3000
 
-# Set Chrome binary path as environment variable
-ENV CHROME_BIN=/usr/bin/chromium-browser
-
-# Copy Angular build files
-COPY --from=angular /app/dist/demo-app/browser /usr/local/apache2/htdocs
-
-# Continue with your Dockerfile...
+# Command to run the application
+CMD ["npm", "test"]
