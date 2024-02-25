@@ -40,9 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Log in to Docker Hub
-        run: echo "${{ secrets.dckr_pat_gWx_UJ5CQDaYYk-rTScZUAMkxL0 }}" | docker login -u saralaaa --password-stdin
-        env:
-          DOCKER_CLI_EXPERIMENTAL: enabled
+        run: docker login -u ${{ secrets.saralaaa }} -p ${{ secrets.dckr_pat_gWx_UJ5CQDaYYk-rTScZUAMkxL0 }}
 
       - name: Pull Docker image
         run: docker pull saralaaa/dockerangular:latest
