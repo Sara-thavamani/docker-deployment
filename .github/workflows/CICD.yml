@@ -15,11 +15,12 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build -t dockerangular .
-        docker tag dockerangular:latest ${{ secrets.saralaaa }}/dockerangular:latest
+        docker build --pull --rm -f "demo-app/Dockerfile" -t dockerangular:latest -t dockerangular:<your_tag> "demo-app"
 
     - name: Log in to Docker Hub
       run: docker login -u saralaaa -p ${{ secrets.dckr_pat_gWx_UJ5CQDaYYk-rTScZUAMkxL0 }}
 
     - name: Push Docker image to Docker Hub
-      run: docker push ${{ secrets.saralaaa }}/dockerangular:latest
+      run: |
+        docker push saralaaa/dockerangular:latest
+        docker push saralaaa/dockerangular:<your_tag>
