@@ -31,7 +31,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           username: saralaaa  # Replace with your Docker Hub username
-          password: ${{ docker.dckr_pat_gWx_UJ5CQDaYYk-rTScZUAMkxL0 }}  # Use a Docker Hub access token stored as a secret
+          password: ${{ secrets.dckr_pat_gWx_UJ5CQDaYYk-rTScZUAMkxL0 }}  # Use a Docker Hub access token stored as a secret
           repository: saralaaa/dockerangular
           tags: latest
 
@@ -40,7 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Log in to Docker Hub
-        run: docker login -u saralaaa -p "${{ docker.dckr_pat_gWx_UJ5CQDaYYk-rTScZUAMkxL0 }}"
+        run: docker login -u saralaaa -p "${{ secrets.dckr_pat_gWx_UJ5CQDaYYk-rTScZUAMkxL0 }}"
 
       - name: Pull Docker image
         run: docker pull saralaaa/dockerangular:latest
