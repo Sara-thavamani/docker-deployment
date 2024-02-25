@@ -25,7 +25,9 @@ jobs:
         run: npm run build --prod  # Adjust the build command as needed
 
       - name: Build Docker Image
-        run: docker build -t dockerangular:latest .
+        run: |
+          docker build -t saralaaa/dockerangular:latest .
+          docker tag saralaaa/dockerangular:latest saralaaa/dockerangular:latest
 
       - name: Log in to Docker Hub
         run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u saralaaa --password-stdin
