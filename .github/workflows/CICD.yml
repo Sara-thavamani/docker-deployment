@@ -31,7 +31,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           username: saralaaa  # Replace with your Docker Hub username
-          password: ${{ secrets.dckr_pat_gWx_UJ5CQDaYYk-rTScZUAMkxL0 }}  # Use a Docker Hub access token stored as a secret
+          password: ${{ docker.dckr_pat_gWx_UJ5CQDaYYk-rTScZUAMkxL0 }}  # Use a Docker Hub access token stored as a secret
           repository: saralaaa/dockerangular
           tags: latest
 
