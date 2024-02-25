@@ -39,7 +39,7 @@ jobs:
    runs-on: ubuntu-latest
    steps:
     - name: Log in to Docker Hub
-      run: docker login -u saralaaa -p ${{ secrets.dckr_pat_gWx_UJ5CQDaYYk-rTScZUAMkxL0 }}
+      run: docker login -u saralaaa -p "${{ secrets.dckr_pat_gWx_UJ5CQDaYYk-rTScZUAMkxL0 }}"
 
     - name: Pull Docker image
       run: docker pull saralaaa/dockerangular:latest
