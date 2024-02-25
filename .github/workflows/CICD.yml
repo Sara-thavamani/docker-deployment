@@ -15,7 +15,7 @@ jobs:
 
     - name: Build Docker image
       run: |
-        docker build --pull --rm -f "demo-app/Dockerfile" -t dockerangular:latest -t dockerangular:latest "demo-app"
+        docker build --pull --rm -f "demo-app/Dockerfile" -t dockerangular:latest -t dockerangular:latest 
 
     - name: Log in to Docker Hub
       run: docker login -u saralaaa -p ${{ secrets.dckr_pat_gWx_UJ5CQDaYYk-rTScZUAMkxL0 }}
