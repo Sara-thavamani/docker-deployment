@@ -40,21 +40,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check if container exists
-        run: |
-          CONTAINER_NAME="dockerangular_container"
-          if docker ps -a --format '{{.Names}}' | grep -q "${CONTAINER_NAME}"; then
-            echo "Container ${CONTAINER_NAME} exists"
-          else
-            echo "Container ${CONTAINER_NAME} does not exist"
-            exit 1
-          fi
-
-      - name: Stop and remove container if it exists
-        run: |
-          docker stop dockerangular_container || true
-          docker rm dockerangular_container || true
-
       - name: Pull Docker image
         run: docker pull saralaaa/dockerangular:latest
 
